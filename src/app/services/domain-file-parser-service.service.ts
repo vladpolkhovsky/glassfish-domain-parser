@@ -10,13 +10,19 @@ export class DomainFileParserServiceService {
   private static readonly options = {
     ignoreAttributes: false,
     attributeNamePrefix : "",
-    attributesGroupName : "attr"
+    attributesGroupName : "@attributes"
   };
 
   constructor() { }
 
-  public domainTextToJson(data: string):any | null {
-    return new XMLParser(DomainFileParserServiceService.options).parse(data);
+  private data: any;
+
+  public content(): any {
+    return this.data;
+  }
+
+  public domainTextToJson(xmlData: string):any | null {
+    this.data = new XMLParser(DomainFileParserServiceService.options).parse(xmlData);
   }
 
 }
