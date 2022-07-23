@@ -7,7 +7,7 @@ import {XMLParser} from "fast-xml-parser";
 })
 export class DomainFileParserServiceService {
 
-  private static readonly options = {
+  public readonly options = {
     ignoreAttributes: false,
     attributeNamePrefix : "",
     attributesGroupName : "@attributes"
@@ -22,7 +22,7 @@ export class DomainFileParserServiceService {
   }
 
   public domainTextToJson(xmlData: string):any | null {
-    this.data = new XMLParser(DomainFileParserServiceService.options).parse(xmlData);
+    this.data = new XMLParser(this.options).parse(xmlData);
   }
 
 }

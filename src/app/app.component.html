@@ -1,7 +1,13 @@
 <div class="container min-vh-100">
-  <app-domain-input-area *ngIf="!initializationPassed"
+  <app-domain-input-area *ngIf="!initializationPassed; else domainContent"
                          (initializationPassedEvent)="isInitializationPassed($event)"
   >
   </app-domain-input-area>
+  <ng-template #domainContent>
+    <app-base-node
+      [node]="domainFileParserService.content()"
+    >
+    </app-base-node>
+  </ng-template>
   <pre #preElement>{{domainFileParserService.content() | json}}</pre>
 </div>
