@@ -1,0 +1,16 @@
+<div class="ml-25">
+  <p>Node element <b>{{nodeName}}</b></p>
+  <div>
+    <app-base-attr
+      *ngFor="let attr of attributes"
+      [property]="attr"
+    >
+    </app-base-attr>
+    <app-base-node
+      *ngFor="let cNode of childNodes"
+      [node]="cNode.object"
+      [nodeName]="cNode.name"
+    >
+    </app-base-node>
+  </div>
+</div>
