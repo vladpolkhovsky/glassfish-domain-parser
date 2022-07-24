@@ -33,10 +33,30 @@ export class NodeUtilsService {
   }
 
   resolveAttributes(node: any): AttributeProperty[] {
-    let key = Object.keys(node).filter(value => value === this.attributesName)[0];
-    if (key !== null) {
-
+    let key:string = Object.keys(node)
+      .filter(value => value === this.attributesName)[0];
+    if (key == null) {
+      return [];
     }
-    return [];
+
+    let attrNode = node[this.attributesName];
+    if (attrNode == undefined) {
+      return [];
+    }
+
+    let attrKeys = Object.keys(attrNode);
+    if (attrKeys == null) {
+      return [];
+    }
+
+    let resultPropertyArray:AttributeProperty[] = []
+    for (let cKey of attrKeys) {
+      resultPropertyArray.push({
+        name: cKey,
+        value: attrNode[cKey]
+      });
+    }
+
+    return resultPropertyArray;
   }
 }

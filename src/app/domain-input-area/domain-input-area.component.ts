@@ -20,6 +20,27 @@ export class DomainInputAreaComponent implements OnInit {
 
   domainTextAreaRowsCount: number;
 
+  default = "<a-1>\n" +
+    "\t<a-2 name=\"name-1\">\n" +
+    "\t\t<a-3 name=\"name-2\">\n" +
+    "\t\t\t<a-4>\n" +
+    "\t\t\t</a-4>\n" +
+    "\t\t</a-3>\n" +
+    "\t\t<a-3 name=\"name-2\">\n" +
+    "\t\t\t<a-4>\n" +
+    "\t\t\t</a-4>\n" +
+    "\t\t\t<a-4>\n" +
+    "\t\t\t</a-4>\n" +
+    "\t\t\t<a-4>\n" +
+    "\t\t\t</a-4>\n" +
+    "\t\t</a-3>\n" +
+    "\t</a-2>\n" +
+    "\t<a-3 name=\"name-2\">\n" +
+    "\t\t<a-4>\n" +
+    "\t\t</a-4>\n" +
+    "\t</a-3>\n" +
+    "</a-1>";
+
   constructor(private domainFileParserService: DomainFileParserServiceService) {
 
   }

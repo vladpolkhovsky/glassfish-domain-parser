@@ -19,7 +19,7 @@ export class BaseNodeComponent implements OnInit {
   childNodes: {
     name: string,
     object: any
-  }[];
+  }[] = [];
 
   @Input()
   nodeName: string;
@@ -27,13 +27,22 @@ export class BaseNodeComponent implements OnInit {
   @Input()
   node: any;
 
+  @Input()
+  collapseChildNode: boolean = true;
+
   constructor(
     private nodeUtils: NodeUtilsService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.childNodes = this.nodeUtils.resolveChildNodes(this.node);
     this.attributes = this.nodeUtils.resolveAttributes(this.node);
+  }
+
+  processExpandButtonClick() {
+    this.collapseChildNode = !this.collapseChildNode;
     console.log(this.childNodes)
   }
 

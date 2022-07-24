@@ -23,6 +23,9 @@ export class DomainFileParserServiceService {
 
   public domainTextToJson(xmlData: string):any | null {
     this.data = new XMLParser(this.options).parse(xmlData);
+    if (this.data.domain != null) {
+      this.data = this.data.domain;
+    }
   }
 
 }

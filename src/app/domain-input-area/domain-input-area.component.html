@@ -5,7 +5,9 @@
               class="form-control h-100"
               id="domainInputArea"
               (input)="domainTextAreaRowsCount = calcRowCount(domainTextArea.value)"
-              [rows]="domainTextAreaRowsCount"></textarea>
+              [rows]="domainTextAreaRowsCount"
+              [value]="default"
+    ></textarea>
   </div>
   <p>Или загрузить из файла</p>
   <div class="input-group mb-3 h-25 w-100">

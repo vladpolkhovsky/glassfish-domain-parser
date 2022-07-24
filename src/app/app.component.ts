@@ -19,6 +19,7 @@ export class AppComponent {
   }) preElement: ElementRef;
 
   initializationPassed: boolean = false;
+  showDebugJson: boolean = false;
 
   isInitializationPassed(value: boolean) {
     this.initializationPassed = value;
