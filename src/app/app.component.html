@@ -5,14 +5,18 @@
   </app-domain-input-area>
   <ng-template #domainContent>
     <app-base-node
-      [node]="domainFileParserService.content()"
+      [node]="node"
       [nodeName]="'domain'"
+      [parentNode]="null"
       [collapseChildNode]="false"
     >
     </app-base-node>
   </ng-template>
   <div class="mt-5 m-5">
+    <button class="btn btn-primary" (click)="save()">Save</button>
+  </div>
+  <div class="mt-5 m-5">
     <button class="btn btn-secondary" (click)="showDebugJson = !showDebugJson">Show debug json...</button>
-    <pre class="mt-2" *ngIf="showDebugJson" #preElement>{{domainFileParserService.content() | json}}</pre>
+    <pre class="mt-2" *ngIf="showDebugJson" #preElement>{{this.node | json}}</pre>
   </div>
 </div>

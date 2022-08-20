@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
-import {XMLParser} from "fast-xml-parser";
+import {XMLBuilder, XMLParser} from "fast-xml-parser";
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,14 @@ export class DomainFileParserServiceService {
 
   public readonly options = {
     ignoreAttributes: false,
-    attributeNamePrefix : "",
-    attributesGroupName : "@attributes"
+    attributeNamePrefix: "",
+    attributesGroupName: "@attributes",
+    allowBooleanAttributes: true,
+    suppressBooleanAttributes: false
   };
 
-  constructor() { }
+  constructor() {
+  }
 
   private data: any;
 
@@ -21,11 +24,14 @@ export class DomainFileParserServiceService {
     return this.data;
   }
 
-  public domainTextToJson(xmlData: string):any | null {
+  public domainTextToJson(xmlData: string): any | null {
     this.data = new XMLParser(this.options).parse(xmlData);
     if (this.data.domain != null) {
       this.data = this.data.domain;
     }
   }
 
+  jsonToDomain(node: any) {
+    console.log(new XMLBuilder(this.options).build(node));
+  }
 }

@@ -14,15 +14,25 @@ export class AppComponent {
 
   }
 
+  node: any;
+
   @ViewChild("preElement", {
     static: true
   }) preElement: ElementRef;
 
   initializationPassed: boolean = false;
+
   showDebugJson: boolean = false;
 
   isInitializationPassed(value: boolean) {
     this.initializationPassed = value;
+    this.node = this.domainFileParserService.content();
+  }
+
+  save() {
+    let text = this.domainFileParserService.jsonToDomain(this.node);
+    console.log(this.node)
+    console.log(text)
   }
 
 }
