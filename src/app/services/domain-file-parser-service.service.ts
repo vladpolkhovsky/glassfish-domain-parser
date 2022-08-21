@@ -26,12 +26,10 @@ export class DomainFileParserServiceService {
 
   public domainTextToJson(xmlData: string): any | null {
     this.data = new XMLParser(this.options).parse(xmlData);
-    if (this.data.domain != null) {
-      this.data = this.data.domain;
-    }
+    console.log("Data: ", this.data);
   }
 
-  jsonToDomain(node: any) {
-    console.log(new XMLBuilder(this.options).build(node));
+  jsonToDomain(node: any): string {
+    return new XMLBuilder(this.options).build(node);
   }
 }

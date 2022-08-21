@@ -24,8 +24,4 @@ export class CreateNodeDialogComponent implements OnInit {
     this.dialogRef.close({ saved: true, name: this.nodeName});
   }
 
-  onNoClick(): void {
-    this.dialogRef.close({ saved: false });
-  }
-
 }

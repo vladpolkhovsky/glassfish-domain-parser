@@ -31,7 +31,7 @@ export class AppComponent {
 
   save() {
     let text = this.domainFileParserService.jsonToDomain(this.node);
-    console.log(this.node)
+    console.log("base node", this.node)
     console.log(text)
   }
 

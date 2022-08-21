@@ -10,6 +10,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import { CreateNodeDialogComponent } from './dialog/create-node-dialog/create-node-dialog.component';
 import {FormsModule} from "@angular/forms";
+import { EditNodeAttrComponent } from './dialog/edit-node-attr/edit-node-attr.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from "@angular/forms";
     DomainInputAreaComponent,
     BaseAttrComponent,
     BaseNodeComponent,
-    CreateNodeDialogComponent
+    CreateNodeDialogComponent,
+    EditNodeAttrComponent
   ],
   imports: [
     BrowserModule,

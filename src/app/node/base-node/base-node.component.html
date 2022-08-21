@@ -65,6 +65,8 @@
         [parentNode]="node"
         [nodeName]="cNode.name"
         [isIndexedChild]="isArray()"
+        (deleteEvent)="deleteEventListener($event)"
+        (renameEvent)="resolveAddition($event.name, $event.data)"
       ></app-base-node>
     </div>
 
@@ -73,4 +75,5 @@
   <ng-template #nothingToShow>
     <p class="mt-2 mb-0 m-2 d-inline">This node dont contains child elements</p>
   </ng-template>
+
 </div>
